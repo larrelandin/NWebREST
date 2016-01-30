@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using Microsoft.SPOT;
+using Microsoft.SPOT.Net.NetworkInformation;
 using NetDuinoUtils.Utils;
 using NWebREST.Web;
 
@@ -9,12 +11,13 @@ namespace Demo
     {
 public static void Main()
 {
-    LcdWriter.Instance.Write("Web Demo Ready! " + DateTime.Now.TimeOfDay);
+    Debug.Print("NWebRest demo project");
 
     WebServerWrapper.InitializeWebEndPoints(new ArrayList
                                                 {
                                                     new BasicPage(),
-                                                    new ButtonWeb()
+                                                    new ButtonWeb(),
+                                                    new ParameterValues()
                                                 });
 
     WebServerWrapper.StartWebServer();

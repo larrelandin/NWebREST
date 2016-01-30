@@ -76,7 +76,6 @@ namespace Demo
             if (_previousButtonStatus != buttonpushed)
             {
                 _previousButtonStatus = buttonpushed;
-                LcdWriter.Instance.Write("Button " + (buttonpushed ? "pushed" : "released"));
             }
 
             Led.Write(buttonpushed);

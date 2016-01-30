@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 
 namespace NWebREST.Web
 {
@@ -84,5 +85,6 @@ public static class WebServerWrapper
             e.ManualSent = e.Command.UsesManualSocket;
         }
     }
+    
 }
 }

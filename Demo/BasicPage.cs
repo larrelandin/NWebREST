@@ -44,7 +44,6 @@ namespace Demo
                 text = "No arguments!";
             }
 
-            LcdWriter.Instance.Write(text);
 
             return "OK. Wrote out: " + (text.Length == 0 ? "n/a" : text);
         }

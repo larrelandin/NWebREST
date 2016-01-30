@@ -1,6 +1,6 @@
 using System.Threading;
 using NetDuinoUtils.SerLCD;
-using SecretLabs.NETMF.Hardware.NetduinoPlus;
+using SecretLabs.NETMF.Hardware.Netduino;
 
 namespace NetDuinoUtils.Utils
 {
