@@ -128,17 +128,19 @@ namespace NWebREST.Web
 		    if (post)
 		    {
 		        // Get "value"
-		        int valuePosStart = commandData.IndexOf("=");
-		        int valueLength = commandData.IndexOf("&") - valuePosStart;
-		        value = commandData.Substring(valuePosStart, valueLength);
-                Debug.Print("value = " + value);
+		        if (commandData.Contains("value=") && commandData.Contains("&password="))
+		        {
+		            int valuePosStart = commandData.IndexOf("value=") + 6;
+		            int valueLength = commandData.IndexOf("&") - valuePosStart;
+		            value = commandData.Substring(valuePosStart, valueLength);
+		            Debug.Print("value = " + value);
 
-                // Get "password"
-		        int passwordPosStart = commandData.LastIndexOf("=");
-		        int passwordLength = commandData.Length - passwordPosStart;
-		        password = commandData.Substring(passwordPosStart, passwordLength);
-                Debug.Print("password = " + password);
-
+		            // Get "password"
+		            int passwordPosStart = commandData.LastIndexOf("&password=") + 10;
+		            int passwordLength = commandData.Length - passwordPosStart;
+		            password = commandData.Substring(passwordPosStart, passwordLength);
+		            Debug.Print("password = " + password);
+		        }
 		    }
 
             // Remove everything after first space
@@ -156,8 +158,8 @@ namespace NWebREST.Web
 		        {
 		            tempArray[i] = parts[i];
 		        }
-		        tempArray[parts.Length + 1] = value;
-		        tempArray[parts.Length + 2] = password;
+		        tempArray[parts.Length] = value;
+		        tempArray[parts.Length + 1] = password;
 		        parts = tempArray;
 		    }
 
